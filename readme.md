@@ -37,6 +37,6 @@ sudo kubectl get nodes
 sudo cat /var/lib/rancher/k3s/server/token
 
 # add worker node
-sudo curl -sfL https://get.k3s.io | K3S_URL=https://<master_node_ip>:6443 K3S_TOKEN=<your_token> sh -
+sudo curl -sfL https://get.k3s.io | K3S_URL=https://192.168.1.34:6443 K3S_TOKEN=K105f7ecab152bc9c8fb9ce76fe137c56548d5d11567514a73573b5e1bd76135b11::server:fbe43fed0456bbf0ac08a359700938cd sh -
 
-```# k3s
+```
