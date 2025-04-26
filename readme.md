@@ -107,7 +107,7 @@ https://everythingdevops.dev/step-by-step-guide-creating-a-kubernetes-cluster-on
 https://rpi4cluster.com/k3s-argo-cd/
 
 #### Misc
-##### #reboot all pods
+##### Reboot all pods
 ```bash
 kubectl rollout restart deployment -n argocd
 kubectl get svc -n argocd -o yaml | kubectl apply -f -
