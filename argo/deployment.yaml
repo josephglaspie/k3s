@@ -1,8 +1,8 @@
 ---
 apiVersion: apps/v1
 kind: Deployment
-namespace: hello-world
 metadata:
+  namespace: hello-world
   name: hello-world
 spec:
   replicas: 3
