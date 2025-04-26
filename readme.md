@@ -88,7 +88,6 @@ spec:
 EOF
 ```
 
-
 ### ArgoCD
 ```bash
 k create namespace argocd
@@ -104,5 +103,26 @@ argocd login 192.168.1.208 --username admin --password $PW
 
 
 #### Resources
-https://everythingdevops.dev/step-by-step-guide-creating-a-kubernetes-cluster-on-raspberry-pi-5-with-k3s/
+https://everythingdevops.dev/step-by-step-guide-creating-a-kubernetes-cluster-on-raspberry-pi-5-with-k3s/  
 https://rpi4cluster.com/k3s-argo-cd/
+
+#### Misc
+##### #reboot all pods
+```bash
+kubectl rollout restart deployment -n argocd
+kubectl get svc -n argocd -o yaml | kubectl apply -f -
+```
+##### Redis Argo
+```bash
+#get redis pw
+kubectl -n argocd get secret argocd-redis -o jsonpath='{.data.auth}' | base64 -d
+# Now exec into the pod
+kubectl -n argocd exec -it argocd-redis-6ffbf44c94-l962b -- sh
+# Inside the pod
+redis-cli
+# Authenticate
+auth <paste password here>
+# Now free to run
+keys *
+info
+```
